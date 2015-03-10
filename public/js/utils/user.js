@@ -2,7 +2,6 @@
 
 var EventEmitter = require('events').EventEmitter;
 var objectAssign = require('object-assign');
-var log100 = Math.log(100);
 
 function User(username, opts) {
   /* global AudioContext */
