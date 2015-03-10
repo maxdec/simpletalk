@@ -7,7 +7,7 @@ module.exports = React.createClass({
   render: function () {
     var users = this.props.users.map(function (user) {
       return (
-        <User user={user} toggleMute={this.props.toggleMute} />
+        <User user={user} key={user.getUsername()} toggleMute={this.props.toggleMute} />
       );
     }.bind(this));
 
