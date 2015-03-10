@@ -19,7 +19,7 @@ var PeerStore = objectAssign({}, EventEmitter.prototype, {
     console.log('Connecting with username', user.getUsername());
     this._peer = new Peer(user.getUsername(), {
       host: window.location.hostname,
-      port: 3000,
+      port: window.location.port || 80,
       path: '/peerjs'
     });
 
