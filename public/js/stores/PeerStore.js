@@ -23,10 +23,17 @@ var PeerStore = objectAssign({}, EventEmitter.prototype, {
       path: '/peerjs'
     });
 
+    this._startHeartbeat();
+
     this._peer.on('call', function (call) {
       call.answer(user.getMediaStream());
       call.on('stream', this._onStream(call));
     }.bind(this));
+  },
+
+  _startHeartbeat: function () {
+    setTimeout(this._startHeartbeat.bind(this), 20000);
+    if (this._peer.socket._wsOpen()) this._peer.socket.send({ type: 'HEARTBEAT' });
   },
 
   _callTo: function (username, self) {
