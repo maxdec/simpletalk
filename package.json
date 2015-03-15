@@ -1,5 +1,5 @@
 {
-  "name": "node-react-starter",
+  "name": "simpletalk",
   "version": "0.0.0",
   "description": "Node-React Starter project. It will help you start a new project quickly: ExpressJS, Socket.io, Redis connection and React + Browserify",
   "main": "server.js",
@@ -24,7 +24,7 @@
     "peer": "^0.2.8",
     "peerjs": "^0.3.14",
     "q": "^1.0.1",
-    "react": "~0.12.2",
+    "react": "^0.13.0",
     "reactify": "^1.0.0",
     "redis": "^0.10.3",
     "serve-favicon": "^2.0.0",
