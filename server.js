@@ -6,7 +6,7 @@ var http = require('http').Server(app);
 var ExpressPeerServer = require('peer').ExpressPeerServer;
 
 var socket = require('./server/socket')(http);
-var peerServer = new ExpressPeerServer(http, { debug: true });
+var peerServer = new ExpressPeerServer(http, { debug: true , proxied: true });
 app.use('/peerjs', peerServer);
 require('./server/api')(app);
 
