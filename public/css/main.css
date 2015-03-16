@@ -66,10 +66,6 @@ body {
   }
 }
 
-.volume {
-  display: inline-block;
-  height: 35px;
-  width: 75px;
-  margin-bottom: 0;
+canvas {
   vertical-align: middle;
 }

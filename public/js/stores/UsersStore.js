@@ -15,11 +15,9 @@ var UsersStore = objectAssign({}, EventEmitter.prototype, {
   _add: function (user) {
     var username = user.getUsername();
     this._users[username] = user;
-    this._users[username].addListener('volume', this._listenToUser.bind(this));
   },
 
   _remove: function (username) {
-    this._users[username].removeListener('volume', this._listenToUser.bind(this));
     delete this._users[username];
   },
 

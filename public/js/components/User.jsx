@@ -2,16 +2,25 @@
 
 var React = require('react/addons');
 var cx = React.addons.classSet;
+var Freqs = require('./Freqs.jsx');
 
 module.exports = React.createClass({
-  componentDitMount: function () {
+  getInitialState: function () {
+    return { freqs: [] };
+  },
+  componentDidMount: function () {
     this.props.user.addListener('MUTE_TOGGLED', this._userChanged);
+    this.props.user.addListener('freqs', this._updateFreqs);
   },
   componentWillUnmount: function() {
     this.props.user.removeListener('MUTE_TOGGLED', this._userChanged);
+    this.props.user.removeListener('freqs', this._updateFreqs);
   },
   _userChanged: function () {
-
+    this.forceUpdate();
+  },
+  _updateFreqs: function (freqs) {
+    this.setState({ freqs: freqs });
   },
   _toggleMute: function (event) {
     event.preventDefault();
@@ -41,9 +50,7 @@ module.exports = React.createClass({
           <i className={iconClasses}></i>
         </button>
         &nbsp;
-        <div className="progress volume">
-          <div className="progress-bar progress-bar-success" style={{ width: user.getVolume() + '%' }}></div>
-        </div>
+        <Freqs freqs={this.state.freqs} />
       </h1>
     );
   }
