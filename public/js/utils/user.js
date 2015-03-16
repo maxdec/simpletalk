@@ -100,7 +100,8 @@ User.prototype.toggleMute = function () {
     this._volume = 0;
     this._processor.onaudioprocess = null;
   } else {
-    this._processVolume();
+    // this._processVolume();
+    this._processFreqs();
   }
 };
 
